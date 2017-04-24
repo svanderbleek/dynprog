@@ -48,6 +48,9 @@ editDistDP s1 s2 =
     (m, n) = (length s1, length s2)
     a = listArray (1, m) s1
     b = listArray (1, n) s2
+    index = ((0,0), (m,n))
+    dists = listArray index [dist i j | (i, j) <- range index]
+    dist :: Int -> Int -> Int
     dist i 0 = i
     dist 0 j = j
     dist i j
@@ -57,8 +60,6 @@ editDistDP s1 s2 =
         insert = dists ! (i - 1, j) + 1
         delete = dists ! (i, j - 1) + 1
         modify = dists ! (i - 1, j - 1) + 1
-    index = ((0,0), (m,n))
-    dists = listArray index [dist i j | (i, j) <- range index]
 
 -- TODO record actions
 
