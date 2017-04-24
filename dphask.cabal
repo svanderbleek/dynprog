@@ -1,0 +1,10 @@
+name: dphask
+version: 0.0.1
+build-type: Simple
+cabal-version: >= 1.2
+
+library
+  build-depends: base
+               , doctest
+               , QuickCheck
+               , array
